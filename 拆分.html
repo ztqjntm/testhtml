@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>方块战争 - 第一人称版</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- 游戏画布容器 -->
+    <div id="canvas-container"></div>
+    
+    <!-- 小地图 -->
+    <div id="minimapContainer">
+        <canvas id="minimapCanvas" width="320" height="320"></canvas>
+    </div>
+    <div id="minimapLabel">小地图</div>
+    
+    <!-- HUD 信息面板 -->
+    <div class="ui hud">
+        <div class="hud-item">波次: <span class="hud-value" id="wave">1</span></div>
+        <div class="hud-item">击杀: <span class="hud-value" id="kills">0</span></div>
+        <div class="hud-item">等级: <span class="hud-value" id="level">1</span></div>
+        <div class="hud-item">连杀: <span class="hud-value" id="combo">0</span></div>
+    </div>
+    
+    <!-- 血条与经验条 -->
+    <div class="ui bar-container hp-bar"><div class="hp-fill" id="hpFill"></div></div>
+    <div class="ui bar-container exp-bar"><div class="exp-fill" id="expFill"></div></div>
+    
+    <!-- 准星系统 -->
+    <div id="crosshair"><div id="crosshair-dot"></div></div>
+    <div id="fireIndicator"></div>
+    
+    <!-- 自动开火开关 -->
+    <div id="autoFireToggle"><div class="toggle-knob"></div></div>
+    <div id="autoFireLabel">自动开火</div>
+    
+    <!-- 手动开火按钮（自动开火关闭时显示） -->
+    <div id="fireBtn" class="hidden">🔥</div>
+    
+    <!-- 加速状态指示器 -->
+    <div id="speedBoostIndicator">⚡ 肾上腺素爆发 — 移速 +100%</div>
+    
+    <!-- 移动摇杆 -->
+    <div class="ui joystick" id="joystick-move">
+        <div class="joystick-base"><div class="joystick-knob" id="moveKnob"></div></div>
+    </div>
+    
+    <!-- 开始界面 -->
+    <div id="startScreen">
+        <h1>方块战争</h1>
+        <div class="subtitle">第一人称版 — 准星自动开火</div>
+        <button id="startBtn">开始战斗</button>
+        <div class="tip">左手拇指移动 · 右侧滑动转向<br>PC 端 WASD 移动 + 鼠标转向<br>准星对准敌人自动开火<br>受伤后无敌期间可穿过敌人</div>
+    </div>
+    
+    <!-- 升级菜单 -->
+    <div id="upgradeMenu">
+        <h2>★ 升级强化 ★</h2>
+        <div id="upgradeList"></div>
+    </div>
+    
+    <!-- 游戏结束界面 -->
+    <div id="gameOver">
+        <h1>战斗结束</h1>
+        <div id="stats"></div>
+        <button id="restartBtn">再次挑战</button>
+    </div>
+    
+    <!-- 波次提示 -->
+    <div class="ui" id="waveAlert">波次 1</div>
+    <div class="ui" id="breakAlert">波次结束 — 吃经验时间！</div>
+    <div class="ui" id="breakTimer">5</div>
+
+    <!-- 按依赖顺序加载 JS 模块 -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/pools.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/entities.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
