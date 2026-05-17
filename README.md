@@ -1,2 +1,3 @@
-# testhtml
-just for test.
+# 方块战争实验仓库
+主体文件将多次修改
+目前正在拆分HTML模块
